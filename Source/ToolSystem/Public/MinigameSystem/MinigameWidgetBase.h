@@ -19,7 +19,7 @@ class TOOLSYSTEM_API UMinigameWidgetBase : public UUserWidget
 public:
 	UFUNCTION(BlueprintImplementableEvent, meta=(DisplayName="On Minigame Started"))
 	void OnMinigameStarted();
-
+	
 	UFUNCTION(BlueprintImplementableEvent, meta=(DisplayName="On Minigame Finished"))
 	void OnMinigameFinished(EMinigameState Result);
 	

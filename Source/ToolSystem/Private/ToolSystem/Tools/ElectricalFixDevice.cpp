@@ -10,9 +10,19 @@ void AElectricalFixDevice::StartTool()
 	
 }
 
-void AElectricalFixDevice::InitializeMinigame(UMinigameBase* minigame)
+void AElectricalFixDevice::InitializeMinigame(UMinigameBase* Minigame)
 {
-	Super::InitializeMinigame(MinigameInstance);
-	
+	Super::InitializeMinigame(Minigame);
 	MinigameInstance->MinigameWidgetClass = MinigameWidgetClass;
+}
+
+
+void AElectricalFixDevice::OnMinigameStateChanged(EMinigameState NewState)
+{
+	Super::OnMinigameStateChanged(NewState);
+}
+
+void AElectricalFixDevice::OnMinigameFinished(EMinigameState FinalState)
+{
+	Super::OnMinigameFinished(FinalState);
 }

@@ -8,7 +8,7 @@
 #include "MinigameSystem/MinigameBase.h"
 #include "ToolBase.generated.h"
 
-UCLASS()
+UCLASS(Abstract)
 class TOOLSYSTEM_API AToolBase : public AActor
 {
 	GENERATED_BODY()
@@ -29,8 +29,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UStaticMeshComponent* StaticMeshComp;
 	
-	void OnMinigameStateChanged(EMinigameState NewState);
-	void OnMinigameFinished(EMinigameState FinalState);
+	virtual void OnMinigameStateChanged(EMinigameState NewState);
+	virtual void OnMinigameFinished(EMinigameState FinalState);
 	
 public:		
 	//=============================================================
@@ -53,7 +53,7 @@ public:
 	UMinigameBase* MinigameInstance = nullptr;
 	
 	virtual void Initialize(UDataTable* ToolDataTable);
-	virtual void InitializeMinigame(UMinigameBase* minigame);
+	virtual void InitializeMinigame(UMinigameBase* Minigame);
 	virtual void StartTool();
 	virtual void FinishTool();
 

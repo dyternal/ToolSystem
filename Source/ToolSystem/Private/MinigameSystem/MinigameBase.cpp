@@ -2,6 +2,8 @@
 
 #include "MinigameSystem/MinigameBase.h"
 
+#include "MinigameSystem/MinigameWidgetBase.h"
+
 void UMinigameBase::StartMinigame()
 {
 	if (CurrentState != EMinigameState::NotStarted) return;
@@ -12,7 +14,7 @@ void UMinigameBase::StartMinigame()
 
 void UMinigameBase::CancelMinigame()
 {
-	SetState(EMinigameState::Canceled);
+	SetState(EMinigameState::Cancelled);
 }
 
 void UMinigameBase::CompleteMinigame(EMinigameState State)
@@ -27,8 +29,9 @@ void UMinigameBase::SetState(EMinigameState NewState)
 	CurrentState = NewState;
 	OnStateChanged.Broadcast(CurrentState);
 	
-	if (CurrentState == EMinigameState::Success || CurrentState == EMinigameState::Failed || CurrentState == EMinigameState::Canceled)
+	if (CurrentState == EMinigameState::Success || CurrentState == EMinigameState::Failed || CurrentState == EMinigameState::Cancelled)
 	{
+		if (MinigameWidgetInstance) MinigameWidgetInstance->OnMinigameFinished(CurrentState);
 		OnMinigameFinished.Broadcast(CurrentState);
 	}
 }

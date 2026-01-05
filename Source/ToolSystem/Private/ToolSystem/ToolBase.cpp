@@ -53,7 +53,7 @@ void AToolBase::OnMinigameFinished(EMinigameState FinalState)
 		case EMinigameState::Failed:
 			FinishTool();
 			break;
-		case EMinigameState::Canceled:
+		case EMinigameState::Cancelled:
 			FinishTool();
 			break;
 		default:
@@ -76,10 +76,10 @@ void AToolBase::Initialize(UDataTable* ToolDataTable)
 	MinigameClass = Row->MinigameClass;
 }
 
-void AToolBase::InitializeMinigame(UMinigameBase* minigame)
+void AToolBase::InitializeMinigame(UMinigameBase* Minigame)
 {
-	minigame->OnStateChanged.AddUObject(this, &AToolBase::OnMinigameStateChanged);
-	minigame->OnMinigameFinished.AddUObject(this, &AToolBase::OnMinigameFinished);
+	Minigame->OnStateChanged.AddUObject(this, &AToolBase::OnMinigameStateChanged);
+	Minigame->OnMinigameFinished.AddUObject(this, &AToolBase::OnMinigameFinished);
 }
 
 

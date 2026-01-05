@@ -19,6 +19,8 @@ public:
 	TSubclassOf<class UMinigameWidgetBase> MinigameWidgetClass;
 	
 	virtual void StartTool() override;
-	virtual void InitializeMinigame(UMinigameBase* minigame) override;
+	virtual void InitializeMinigame(UMinigameBase* Minigame) override;
 	
+	virtual void OnMinigameStateChanged(EMinigameState NewState) override;
+	virtual void OnMinigameFinished(EMinigameState FinalState) override;
 };

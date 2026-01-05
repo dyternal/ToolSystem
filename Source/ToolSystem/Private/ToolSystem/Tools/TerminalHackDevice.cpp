@@ -9,9 +9,19 @@ void ATerminalHackDevice::StartTool()
 	Super::StartTool();
 }
 
-void ATerminalHackDevice::InitializeMinigame(UMinigameBase* minigame)
+void ATerminalHackDevice::InitializeMinigame(UMinigameBase* Minigame)
 {
-	Super::InitializeMinigame(minigame);
+	Super::InitializeMinigame(Minigame);
 	
 	MinigameInstance->MinigameWidgetClass = MinigameWidgetClass;
+}
+
+void ATerminalHackDevice::OnMinigameStateChanged(EMinigameState NewState)
+{
+	Super::OnMinigameStateChanged(NewState);
+}
+
+void ATerminalHackDevice::OnMinigameFinished(EMinigameState FinalState)
+{
+	Super::OnMinigameFinished(FinalState);
 }
