@@ -18,15 +18,15 @@ Each tool is implemented as a C++-based, modular gameplay object responsible for
 From a technical perspective, tools are derived from a common ToolBase class. This design allows for easy extension and addition of new tools. New tools can be created by inheriting from the ToolBase class and implementing specific interaction logic.
 
 #### Example tools include:
-- Electrical Fix Device
-- Terminal Hack Device
+- `Electrical Fix Device`
+- `Terminal Hack Device`
 
 ### 2. **Minigames**
 Minigames are interactive sequences that players can engage with using the tools. Each minigame is designed to provide a unique challenge or task that players must complete using the associated tool. Event-driven architecture ensures that minigames can be seamlessly integrated with the tools, and be controlled through events and callbacks.
 
 #### Example minigames include:
-- Electrical Repair Minigame
-- Terminal Hacking Minigame
+- `Electrical Repair Minigame`
+- `Terminal Hacking Minigame`
 
 ## Features
 - Modular tool interactions
@@ -42,7 +42,7 @@ To create a new tool, follow these steps:
 3. Create a new minigame class that defines the interactive sequence for the tool.
 4. Link the new tool to the minigame using event-driven callbacks.
 
-NewTool.h
+`NewTool.h`
 ```c++
 // Example of a new tool class
 UCLASS()
@@ -68,7 +68,7 @@ To create a new minigame, follow these steps:
 1. Create a new C++ class that inherits from the MinigameBase class.
 2. Implement the specific logic for the minigame.
 
-NewMinigame.h
+`NewMinigame.h`
 ```c++
 // Example of a new minigame class
 UCLASS()
@@ -120,21 +120,17 @@ void ANewTool::OnMinigameFinished(EMinigameState FinalState)
 
 Minigames use a state-based flow to represent their current status during execution.
 
-- **EMinigameState::NotStarted**  
+`EMinigameState::NotStarted`
   The minigame has not been started yet.
 
-- **EMinigameState::InProgress**  
+`EMinigameState::InProgress` 
   The minigame is currently active and running.
 
-- **EMinigameState::Success**  
+`EMinigameState::Success` 
   The minigame has been completed successfully.
 
-- **EMinigameState::Failed**  
+`EMinigameState::Failed` 
   The minigame has ended without success.
 
-- **EMinigameState::Cancelled**  
+`EMinigameState::Cancelled`
   The minigame was cancelled before completion.
-
-
-
-
