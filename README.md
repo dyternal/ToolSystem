@@ -3,6 +3,8 @@ A modular tool interaction and minigame gameplay system built with **Unreal Engi
 
 **This system is under active development and is being expanded with additional tools and minigames.**
 
+ **[🎬 Gameplay Video](https://www.youtube.com/watch?v=YwwUeVTUN-s)** | **[🌐 Project Page](https://rhsakman.com/projects/tool_system.html)**
+
 ---
 
 ## Overview
